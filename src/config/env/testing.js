@@ -1,0 +1,6 @@
+exports.default = {
+    log: {
+    },
+    params: {
+    },
+};
