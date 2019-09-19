@@ -18,6 +18,8 @@
     "joi": "^14.3.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.7.1",
-    "read-pkg-up": "^6.0.0"
+    "mongoose-plugin-autoinc": "^1.1.9",
+    "read-pkg-up": "^6.0.0",
+    "uuid": "^3.3.3"
   }
 }
