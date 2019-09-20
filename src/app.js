@@ -3,6 +3,9 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
+const uuidv4 = require('uuid/v4');
+
+const { logger } = require('./components/logger');
 
 const router = require('./routes');
 
@@ -19,6 +22,25 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }));
 
+function createChildLogger(req, res, next) {
+    const childLogger = logger.child({
+        sessionId: uuidv4(),
+    });
+
+    // Initialization the logTimes
+    const logTimes = {
+        first: new Date(),
+        previous: new Date(),
+    };
+
+    req.state = {
+        logTimes,
+        logger: childLogger,
+    }
+    return next();
+}
+
+app.use(createChildLogger);
 app.use(bodyParser.json());
 
 app.use(router);

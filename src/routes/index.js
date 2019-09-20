@@ -13,7 +13,7 @@ const router = express.Router();
 router.use('/api/v1/shorturl', api.router);
 // endregion
 
-// router.use(middleware.errorHandler);
-// router.use(middleware.standardHandler);
+router.use(middleware.errorHandler);
+router.use(middleware.standardHandler);
 
 module.exports = router;

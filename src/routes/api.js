@@ -12,13 +12,13 @@ const router = express.Router();
 router.post(
     '/short',
     validateReqParams(validation.shorturl),
-    handleController(shorturl.components),
+    handleController(shorturl.shorturl),
 );
 
 router.post(
-    '/short',
+    '/shortTop',
     validateReqParams(validation.shorturl),
-    handleController(shorturl.components),
+    handleController(shorturl.shorturl),
 );
 
 exports.router = router;
