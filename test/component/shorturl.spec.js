@@ -2,6 +2,8 @@ const chai = require('chai');
 
 const initSetup = require('../lib/utils/initSetup');
 const testUtil = require('../lib/utils/testUtil');
+
+const shorturlModel = require('../../src/repositories/shorturl');
 const config = require('../../src/config');
 
 const { expect } = chai;

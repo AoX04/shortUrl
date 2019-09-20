@@ -40,23 +40,22 @@ async function redirect(id, state) {
 
 async function top100(state) {
     try {
+        const top = await shorturlModel.find({}, null,
+            {
+                skip: 0,
+                limit: 100,
+                sort: {
+                    hits: -1, // Sort by hits DESC
+                },
+            });
 
-        const top100 = await shorturlModel.find({}, null,
-        {
-            skip:0,
-            limit:100,
-            sort:{
-                hits: -1 //Sort by hits DESC
-            }
-        });
-
-        top100.forEach( element => {
+        top.forEach((element) => {
+            /* eslint no-param-reassign: 0 */
             element._id = parseInt(element._id, 10).toString(36);
         });
 
-        return top100;
+        return top;
     } catch (err) {
-
         state.logger.error({
             top100Error: err,
         }, 'Error while processing request in top100');

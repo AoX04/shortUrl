@@ -16,7 +16,7 @@ const ShorturlSchema = new Schema({
     },
     title: {
         type: String,
-        default: "",
+        default: '',
     },
 });
 
