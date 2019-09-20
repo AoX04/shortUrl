@@ -1,5 +1,6 @@
 exports.urls = {
     composer: {
-        component: () => `/api/v1/shorturl/short`
+        base: () => `/api/v1/shorturl/`,
+        short: () => `/api/v1/shorturl/short/`,
     }
 };
