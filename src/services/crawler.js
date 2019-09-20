@@ -14,7 +14,6 @@ const errors = require('../errors');
 // to add aditional elements to fetch just push em Queue.push({ entry,state, });
 const Queue = async.queue( async function(task) {
     try {
-        console.log({task});
         const page = await axios({
             method: 'get',
             url: task.entry.url,
@@ -22,7 +21,6 @@ const Queue = async.queue( async function(task) {
 
         const $ = cheerio.load(page.data);
         const title = $('title').text()
-        console.log({title});
         await task.entry.updateOne({ 
             title,
         });

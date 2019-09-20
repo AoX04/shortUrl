@@ -57,8 +57,6 @@ async function top100(state) {
         return top100;
     } catch (err) {
 
-        console.log(err);
-
         state.logger.error({
             top100Error: err,
         }, 'Error while processing request in top100');

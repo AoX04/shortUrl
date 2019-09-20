@@ -18,9 +18,12 @@ async function top100(req){
 }
 
 async function redirect(req) {
+    // Due to the cascading of express
+    // if a previous controller have been called we default to them
+    if(req.state.out) return req.state.out;
+
     const url = await shorturlService.redirect(req.params.redirectId, req.state);
     
-    if(req.state.out) return req.state.out;
     return {
         url,
     };

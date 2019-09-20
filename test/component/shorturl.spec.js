@@ -19,6 +19,7 @@ describe('Composer controller', () => {
     });
 
     describe('Shorturl api test', () => {
+        // We create a new entry to shortUrl
         it('/api/v1/shorturl/short endpoint test', async () => {
             const { body } = await out.users.anonymous
                 .make('post', urls.composer.short())
@@ -31,21 +32,21 @@ describe('Composer controller', () => {
             expect(typeof body.url).to.be.eql('string');
         });
 
+        // We follow the previously created url
         it('localhost:3000/api/v1/shorturl/:redirectionId endpoint test', async () => {
             const { body } = await out.users.anonymous
                 .make('get', urls.composer.base()+redirectionId)
                 .set({ 'X-Forwarded-For': '0.0.0.0, 1.1.1.1, 2.2.2.2' })
                 .expect(200);
-            console.log(body)
             expect(body.url).to.be.eql('aox.dev');
         });
 
+        // We hit the same shorted url again
         it('localhost:3000/api/v1/shorturl/:redirectionId endpoint test', async () => {
             const { body } = await out.users.anonymous
                 .make('get', urls.composer.base()+redirectionId)
                 .set({ 'X-Forwarded-For': '0.0.0.0, 1.1.1.1, 2.2.2.2' })
                 .expect(200);
-            console.log(body)
             expect(body.url).to.be.eql('aox.dev');
         });
 
