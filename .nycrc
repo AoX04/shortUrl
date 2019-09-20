@@ -1,0 +1,26 @@
+{
+    "lines": 10,
+    "statements": 10,
+    "functions": 10,
+    "branches": 10,
+    "include": [
+        "src/**/*.js"
+    ],
+    "exclude": [
+        "src/config/env/*.js",
+        "src/index.js",
+        "src/components/massLog/index.js",
+        "src/newrelic.js",
+        "src/errors/classes/*.js",
+        "src/config/index.js"
+    ],
+    "all": true,
+    "extension": [
+        ".js"
+    ],
+    "reporter": [
+        "lcov",
+        "text-summary",
+        "clover"
+    ]
+}
