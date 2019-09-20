@@ -15,10 +15,15 @@ router.post(
     handleController(shorturl.shorturl),
 );
 
-router.post(
-    '/shortTop',
-    validateReqParams(validation.shorturl),
-    handleController(shorturl.shorturl),
+router.get(
+    '/top100.json',
+    handleController(shorturl.top100),
+);
+
+router.get(
+    '/:redirectId',
+    validateReqParams(validation.redirect),
+    handleController(shorturl.redirect),
 );
 
 exports.router = router;

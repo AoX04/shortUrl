@@ -14,6 +14,10 @@ const ShorturlSchema = new Schema({
         type: String,
         required: true,
     },
+    title: {
+        type: String,
+        default: "",
+    },
 });
 
 ShorturlSchema.plugin(autoIncrement.plugin, 'Shorturl');
