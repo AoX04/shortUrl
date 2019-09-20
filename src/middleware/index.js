@@ -7,7 +7,7 @@ const config = require('../config');
  * Middleware responsible for the sending the response and handling the errors
  * @param fn Function that will be executed and awaited and its value put as response
  */
-exports.handleController = fn => async (req, res, next) => {
+exports.handleController = (fn) => async (req, res, next) => {
     try {
         req.state.out = await fn(req, res);
         return next();
@@ -62,7 +62,7 @@ exports.errorHandler = (err, req, res, next) => {
     res.json(errResponse);
 };
 
-exports.handleController = fn => async (req, res, next) => {
+exports.handleController = (fn) => async (req, res, next) => {
     try {
         req.state.out = await fn(req, res);
         return next();

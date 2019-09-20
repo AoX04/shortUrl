@@ -19,6 +19,7 @@ try {
 const config = _.merge(
     {},
     defaults,
+    /* eslint import/no-dynamic-require: 0 */
     require(envPath).default,
     envs,
 );

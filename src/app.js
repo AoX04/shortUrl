@@ -36,7 +36,7 @@ function createChildLogger(req, res, next) {
     req.state = {
         logTimes,
         logger: childLogger,
-    }
+    };
     return next();
 }
 
