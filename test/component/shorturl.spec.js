@@ -15,6 +15,12 @@ describe('Composer controller', () => {
     let redirectionId = null;
     before(async () => {
         out = await initSetup.prepare();
+
+        const toInsert = Array.from('x'.repeat(100)).map( url => ({
+            url:'http://google.com',
+        }));
+
+        await shorturlModel.create(toInsert);
     });
 
     beforeEach(async () => {
